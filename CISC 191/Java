@@ -1,0 +1,86 @@
+Here is the link to the flowchart:
+https://app.diagrams.net/#G1eTp3oMXgUndFHhr-T8rPVsCBXlK7bao_#%7B%22pageId%22%3A%22jucehjU7_6moPZFbvXPX%22%7D
+Here is the link to the video:
+https://www.youtube.com/watch?v=UgLzJxSP-mo
+Here is the link to the code:
+https://onecompiler.com/java/446meagra
+Here is the actual code:
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+    String ssn;
+    String firstName;
+    String middleName;
+    String lastName;
+    String dob;
+    String street;
+    String phone;
+    String zipcode;
+    int deptID;
+
+    // Constructor
+    public Student(String ssn, String firstName, String middleName, String lastName,
+                   String dob, String street, String phone, String zipcode, int deptID) {
+        this.ssn = ssn;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.street = street;
+        this.phone = phone;
+        this.zipcode = zipcode;
+        this.deptID = deptID;
+    }
+
+    // Method to display student info
+    public void display() {
+        System.out.println("SSN: " + ssn);
+        System.out.println("Name: " + firstName + " " + middleName + " " + lastName);
+        System.out.println("DOB: " + dob);
+        System.out.println("Street: " + street);
+        System.out.println("Phone: " + phone);
+        System.out.println("Zipcode: " + zipcode);
+        System.out.println("DeptID: " + deptID);
+        System.out.println("---------------------------");
+    }
+}
+
+public class DatabaseManipulation {
+
+    public static void main(String[] args) {
+        // Step 1: Create a "database" (List)
+        List<Student> database = new ArrayList<>();
+
+        // Step 2: Insert a record
+        Student newStudent = new Student(
+                "111222333",
+                "Philip",
+                "David Charles",
+                "Collins",
+                "Jan 30, 1951",
+                "NA",
+                "NA",
+                "NA",
+                1234
+        );
+        database.add(newStudent);
+        System.out.println("Record inserted:");
+        newStudent.display();
+
+        // Step 3: Update a record (change zipcode)
+        for (Student s : database) {
+            if (s.ssn.equals("111222333")) {
+                s.zipcode = "92126";
+                System.out.println("Record updated:");
+                s.display();
+            }
+        }
+
+        // Step 4: Access database (display all records)
+        System.out.println("All records in the database:");
+        for (Student s : database) {
+            s.display();
+        }
+    }
+}
